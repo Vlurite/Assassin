@@ -30,7 +30,6 @@ local Label_8 = Instance.new("TextLabel")
 
 AssassinHub.Name = "AssassinHub"
 AssassinHub.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-AssassinHub.ResetOnSpawn = false
 
 MainUI.Name = "MainUI"
 MainUI.Parent = AssassinHub
@@ -346,14 +345,14 @@ while true do
 end
 
 AutoKillB.MouseButton1Click:Connect(function()
-	if AutoKillB.Status.Text == "Off" then
+	if Status.Text == "Off" then
 		On = true
-		AutoKillB.Status.Text = "On"
-		AutoKillB.Status.ShadowText.Text = "On"
+		Status.Text = "On"
+		Status.ShadowText.Text = "On"
 	else
 		On = false
-		AutoKillB.Status.Text = "Off"
-		AutoKillB.Status.ShadowText.Text = "Off"
+		Status.Text = "Off"
+		Status.ShadowText.Text = "Off"
 	end
 end)
 
