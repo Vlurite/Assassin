@@ -357,23 +357,21 @@ AutoKillB.MouseButton1Click:Connect(function()
 end)
 
 if On == true and RoundInProgress == true then
-	if RoundInProgress == true then
-		game.RunService.RenderStepped:Connect(function()
-			pcall(function()
-				spawn(function()
-					if game.Players.LocalPlayer.Backpack.Knife then
-						keypress(0x31)
-						keyrelease(0x31)
-					end
-				end)
-				spawn(function()
-					if Player.PlayerGui.ScreenGui.UI.Target.Visible then
-						local Target = Player.PlayerGui.ScreenGui.UI.Target.TargetText.Text
-						Player.Character.HumanoidRootPart.CFrame = game.Players[Target].Character.HumanoidRootPart.CFrame
-						mouse1click()
-					end
-				end)
+	game.RunService.RenderStepped:Connect(function()
+		pcall(function()
+			spawn(function()
+				if game.Players.LocalPlayer.Backpack.Knife then
+					keypress(0x31)
+					keyrelease(0x31)
+				end
+			end)
+			spawn(function()
+				if Player.PlayerGui.ScreenGui.UI.Target.Visible then
+					local Target = Player.PlayerGui.ScreenGui.UI.Target.TargetText.Text
+					Player.Character.HumanoidRootPart.CFrame = game.Players[Target].Character.HumanoidRootPart.CFrame
+					mouse1click()
+				end
 			end)
 		end)
-	end
+	end)
 end
