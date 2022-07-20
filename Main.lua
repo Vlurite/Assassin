@@ -334,16 +334,6 @@ end)
 local On = false
 local RoundInProgress = false
 
-while true do
-	if game.Workspace:FindFirstChild("GameMap") then
-		RoundInProgress = true
-	else
-		RoundInProgress = false
-	end
-	
-	wait(0.1)
-end
-
 AutoKillB.MouseButton1Click:Connect(function()
 	if Status.Text == "Off" then
 		On = true
@@ -374,4 +364,14 @@ if On == true and RoundInProgress == true then
 			end)
 		end)
 	end)
+end
+
+while true do
+	if game.Workspace:FindFirstChild("GameMap") then
+		RoundInProgress = true
+	else
+		RoundInProgress = false
+	end
+	
+	wait(0.1)
 end
