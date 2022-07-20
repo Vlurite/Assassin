@@ -1,12 +1,13 @@
+getgenv().AutoFarm = false
+
 local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/AikaV3rm/UiLib/master/Lib.lua')))()
 
 local w = library:CreateWindow("Assassin")
-
 local b = w:CreateFolder("Farming")
 
-b:Toggle("Toggle", function(bool)
-    shared.toggle = bool
-    print(shared.toggle)
+b:Toggle("Auto Farm",function(bool)
+    getgenv().AutoFarm = bool
+    print("Auto Farm Is: ", bool)
 end)
 
 b:Label("Pretty Useless NGL",{
@@ -16,32 +17,32 @@ b:Label("Pretty Useless NGL",{
     
 }) 
 
-b:Button("Button", function()
-    print("Elym Winning")
+b:Button("Auto Kill",function()
+    print("Auto Kill Is On")
 end)
 
-b:Slider("Slider",{
-    min = 10; -- min value of the slider
-    max = 50; -- max value of the slider
-    precise = true; -- max 2 decimals
-},function(value)
-    print(value)
-end)
+-- b:Slider("Slider",{
+--     min = 10; -- min value of the slider
+--     max = 50; -- max value of the slider
+--     precise = true; -- max 2 decimals
+-- },function(value)
+--     print(value)
+-- end)
 
-b:Dropdown("Dropdown",{"A","B","C"},true,function(mob) --true/false, replaces the current title "Dropdown" with the option that t
-    print(mob)
-end)
+-- b:Dropdown("Dropdown",{"A","B","C"},true,function(mob) --true/false, replaces the current title "Dropdown" with the option that t
+--     print(mob)
+-- end)
 
-b:Bind("Bind",Enum.KeyCode.C,function() --Default bind
-    print("Yes")
-end)
+-- b:Bind("Bind",Enum.KeyCode.C,function() --Default bind
+--     print("Yes")
+-- end)
 
-b:ColorPicker("ColorPicker",Color3.fromRGB(255,0,0),function(color) --Default color
-    print(color)
-end)
+-- b:ColorPicker("ColorPicker",Color3.fromRGB(255,0,0),function(color) --Default color
+--     print(color)
+-- end)
 
-b:Box("Box","number",function(value) -- "number" or "string"
-    print(value)
-end)
+-- b:Box("Box","number",function(value) -- "number" or "string"
+--     print(value)
+-- end)
 
 b:DestroyGui()
