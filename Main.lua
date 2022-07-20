@@ -339,10 +339,12 @@ AutoKillB.MouseButton1Click:Connect(function()
 		On = true
 		Status.Text = "On"
 		Status.ShadowText.Text = "On"
+		print("Auto Farm Is On.")
 	else
 		On = false
 		Status.Text = "Off"
 		Status.ShadowText.Text = "Off"
+		print("Auto Farm Is Off.")
 	end
 end)
 
