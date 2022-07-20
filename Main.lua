@@ -300,6 +300,7 @@ local DragToggle = nil
 local DragSpeed = 0.25
 local DragStart = nil
 local StartPosition = nil
+local Player = game.Players.LocalPlayer
 
 local function UpdateInput(Input)
 	local Delta = Input.Position - DragStart
@@ -327,5 +328,50 @@ InputService.InputChanged:Connect(function(Input)
 		if DragToggle then
 			UpdateInput(Input)
 		end
+	end
+end)
+
+local On = false
+local RoundInProgress = false
+
+while true do
+	if game.Workspace:FindFirstChild("GameMap") then
+		RoundInProgress = true
+	else
+		RoundInProgress = false
+	end
+	
+	wait(0.1)
+end
+
+AutoKillB.MouseButton1Click:Connect(function()
+	if On == false then
+		On = true
+		AutoKillB.Status.Text = "On"
+		AutoKillB.Status.ShadowText.Text = "On"
+		
+		if RoundInProgress == true then
+			game.RunService.RenderStepped:Connect(function()
+				pcall(function()
+					spawn(function()
+						if game.Players.LocalPlayer.Backpack.Knife then
+							keypress(0x31)
+							keyrelease(0x31)
+						end
+					end)
+					spawn(function()
+						if Player.PlayerGui.ScreenGui.UI.Target.Visible then
+							local Target = Player.PlayerGui.ScreenGui.UI.Target.TargetText.Text
+							Player.Character.HumanoidRootPart.CFrame = game.Players[Target].Character.HumanoidRootPart.CFrame
+							mouse1click()
+						end
+					end)
+				end)
+			end)
+		end
+	else
+		On = false
+		AutoKillB.Status.Text = "Off"
+		AutoKillB.Status.ShadowText.Text = "Off"
 	end
 end)
