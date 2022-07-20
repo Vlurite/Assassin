@@ -346,7 +346,7 @@ while true do
 end
 
 AutoKillB.MouseButton1Click:Connect(function()
-	if On == false then
+	if AutoKillB.Status.Text == "Off" then
 		On = true
 		AutoKillB.Status.Text = "On"
 		AutoKillB.Status.ShadowText.Text = "On"
