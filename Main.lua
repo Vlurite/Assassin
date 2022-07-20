@@ -30,6 +30,7 @@ local Label_8 = Instance.new("TextLabel")
 
 AssassinHub.Name = "AssassinHub"
 AssassinHub.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+AssassinHub.ResetOnSpawn = false
 
 MainUI.Name = "MainUI"
 MainUI.Parent = AssassinHub
